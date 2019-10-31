@@ -3,7 +3,7 @@ I made this website for a web development course. Since I rehosted this to githu
 
 This website is a mock-up of an e-commerce website which provides League of Legends in exchange for money. Elo boosting is a service in which the buyer pays to have somebody else who is really good at the game play on their account to raise theri rank. There  are many elo boosting websites on the internet which provide similar services to what my website does.
 
-Note: I still have to port much of the PHP code to javascript so that it can load on github pages, so for now, you can just look at these screenshots:
+Note: I still have to port much of the PHP code to javascript so that it can load on github pages
 
 
 # Features
