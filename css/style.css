@@ -1,0 +1,27 @@
+body {
+    /*  100% means use browser's default font size
+        shorthand is:
+            font: normal 100% Helvetica, Arial, sans-serif;
+    */
+    font-family: 'Slabo 13px', serif;
+    line-height: 1.0;
+    font-weight: normal;
+    font-stretch: semi-expanded;
+    font-variant: normal;
+    font-size: 100%;
+    background-color: black;
+    color: yellow;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+    font-variant: small-caps;
+    font-stretch: semi-condensed;
+}
+
+.big {
+    font-size: 2.0em;
+}
+.center {
+    text-align: center;
+}
