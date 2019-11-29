@@ -12,7 +12,7 @@ body {
 }
 
 /* Grid is amazing! But is not fully supported by IE 11.
-    Thankfully, only 2% of all people use IE.
+    Thankfully, only 10% of people use IE.
     Hopefully you're not one of them.
 */
 @supports (display: grid) {
@@ -24,8 +24,8 @@ body {
             padding: 0 0;
             margin: 0 0;
             display: grid;
-            grid-template-areas: "navbar navbar navbar" "banner banner banner" ". content ." "footer footer footer";
-            grid-template-rows: auto auto auto 8rem;
+            grid-template-areas: "banner banner banner" ". content ." "footer footer footer";
+            grid-template-rows: auto auto 10rem;
             grid-template-columns: 1fr 4fr 1fr;
         }
     }
@@ -36,6 +36,7 @@ body {
 }
 
 #navbar {
+    margin-top: 1em;
     grid-area: navbar;
     display: grid;
     grid-template: "logo links ." auto / 15% auto 15%;
@@ -55,7 +56,6 @@ body {
     grid-area: links;
     display: flex;
     flex-wrap: wrap;
-    padding-top: .5em;
     justify-content: center;
     align-items: center;
 }
@@ -88,24 +88,40 @@ body {
 }
 
 .highlight-box {
-
+    border: .15em solid #d5be73;
+    padding: .5em;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #eaeaea;
+    margin: .1em;
+    text-align: center;
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    transition: all 150ms linear;
 }
 
 .highlight-box:hover {
-    transition: all .1s linear;
-    border: 1px solid #e1a87a;
-    display: inline-block;
-    padding: 13px 46px;
+    border: .15em solid #d5be73;
+    color: black;
+    background: #d5be73;
 }
 
 #banner {
     grid-area: banner;
-    height: 40em;
+    height: 50em;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../resources/guardian.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    display: grid;
+    grid-template-areas: "navbar" "banner-text";
+    grid-template-rows: min-content auto;
+    grid-template-columns: 1fr;
 }
 
 #eric {
@@ -115,6 +131,8 @@ body {
 }
 
 #banner-text {
+    padding: none;
+    grid-area: banner-text;
     user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -138,7 +156,16 @@ body {
 }
 
 #footer {
+    color: #ccc;
     grid-area: footer;
+    text-align: center;
+}
+#footer > hr {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 70%;
+    border: none;
+    border-top: 1px solid #d5be73;
 }
 
 .head_text {
@@ -154,7 +181,7 @@ body {
     text-align: center;
 }
 
-div {
+div, nav {
 }
 
 a {
