@@ -20,13 +20,13 @@ body {
     @media screen and (min-width: 34em) {
         body {
             color: white;
-            background-color: #3b313d;
+            background-color: #401d46;
             padding: 0 0;
             margin: 0 0;
             display: grid;
-            grid-template-areas: "banner banner banner" ". content ." "footer footer footer";
-            grid-template-rows: auto auto 10rem;
-            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-areas: "banner" "content" "footer";
+            grid-template-rows: auto auto 10em;
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -92,8 +92,8 @@ body {
     padding: .5em;
     font-size: 1.3em;
     font-weight: 400;
+    margin: 0em .7em;
     color: #eaeaea;
-    margin: .1em;
     text-align: center;
     user-drag: none;
     user-select: none;
@@ -112,7 +112,7 @@ body {
 
 #banner {
     grid-area: banner;
-    height: 50em;
+    height: 40em;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../resources/guardian.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -128,6 +128,7 @@ body {
     font-size: 5em;
     font-weight: 300;
     letter-spacing: .05em;
+    margin-bottom: .5em;
 }
 
 #banner-text {
@@ -149,10 +150,47 @@ body {
 
 #content {
     grid-area: content;
+    display: grid;
+    grid-template-areas: "about-container";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
 }
 
-#side {
-    grid-area: side;
+#about-container {
+    grid-area: about-container;
+    background: #eee;
+
+    display: grid;
+    grid-template: ". about ." auto / 1fr 4fr 1fr;
+}
+
+#about {
+    padding: 2em 0;
+    grid-area: about;
+    color: black;
+    display: grid;
+    grid-template: "about-left about-right" auto / 2fr 3fr;
+}
+
+#about-left {
+    grid-area: about-left;
+}
+
+#about-left > a > img {
+    height: 20em;
+}
+
+#about-right {
+    grid-area: about-right;
+    font-size: 1.25em;
+    padding-top: .5em;
+    padding-left: 1em;
+}
+
+#about-right > h1 {
+    font-weight: 300;
+    font-size: 2em;
+    text-align: center;
 }
 
 #footer {
@@ -181,19 +219,23 @@ body {
     text-align: center;
 }
 
+.text-shadow {
+    text-shadow: 1px 1px rgba(0,0,0,.4);
+}
+
+.boxed {
+    border: .15em solid white;
+    padding: .5em;
+}
+
+.green {
+    color: #06b179;
+}
+
 div, nav {
 }
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-.text-shadow {
-    text-shadow: 1px 2px rgba(0,0,0,.3);
-}
-
-.boxed {
-    border: .15em solid white;
-    padding: .5em;
 }
