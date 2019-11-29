@@ -125,6 +125,7 @@ body {
 }
 
 #eric {
+    font-family: 'Noto Serif', serif;
     font-size: 5em;
     font-weight: 300;
     letter-spacing: .05em;
@@ -154,6 +155,7 @@ body {
     grid-template-areas: "about-container";
     grid-template-rows: auto;
     grid-template-columns: 1fr;
+    letter-spacing: .03em;
 }
 
 #about-container {
@@ -188,7 +190,8 @@ body {
 }
 
 #about-right > h1 {
-    font-weight: 300;
+    font-family: 'Noto Serif', serif;
+    font-weight: 400;
     font-size: 2em;
     text-align: center;
 }
@@ -206,19 +209,6 @@ body {
     border-top: 1px solid #d5be73;
 }
 
-.head_text {
-    font-family: 'Slabo 13px', serif;
-    font-variant: small-caps;
-}
-
-.big {
-    font-size: 2em;
-}
-
-.center {
-    text-align: center;
-}
-
 .text-shadow {
     text-shadow: 1px 1px rgba(0,0,0,.4);
 }
@@ -230,6 +220,24 @@ body {
 
 .green {
     color: #06b179;
+}
+.purple {
+    color: #7315d6;
+}
+
+.link {
+    color: #7315d6;
+    -ms-transform: color 150ms ease-in-out; /* IE 9 */
+    -webkit-transform: color 150ms ease-in-out; /* Chrome, Safari, Opera */
+    transition: color 150ms ease-in-out;
+}
+
+    .link:hover, .link:after {
+        color: #c5a2eb;
+    }
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Noto Serif', serif;
 }
 
 div, nav {
