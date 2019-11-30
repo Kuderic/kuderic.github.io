@@ -8,7 +8,75 @@ body {
     font-weight: normal;
     font-stretch: normal;
     font-variant: normal;
-    font-size: 120%;
+    font-size: 1.2em;
+    background-color: #401d46;
+    padding: 0 0;
+    margin: 0 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Use flex as default, grid if supported (code below)*/
+#navbar {
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+#left-logo-container {
+    color: white;
+}
+
+#navbar > #links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#banner {
+    height: 40em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../resources/guardian.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .03em;
+}
+
+#about-container {
+    background: #eee;
+    padding: 2em 5em;
+}
+
+#about {
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+#about-left {
+}
+
+#about-right {
+    font-size: 1.25em;
+    padding-top: .5em;
+    padding-left: 1em;
+}
+
+#footer {
+    color: #ccc;
+    text-align: center;
 }
 
 /* Grid is amazing! But is not fully supported by IE 11.
@@ -16,234 +84,266 @@ body {
     Hopefully you're not one of them.
 */
 @supports (display: grid) {
-    /* screen is big enough for big layout */
-    @media screen and (min-width: 34em) {
+    /* 320px (iphone 5 portrait) */
+    @media screen and (min-width: 16em) {
         body {
-            color: white;
-            background-color: #401d46;
-            padding: 0 0;
-            margin: 0 0;
             display: grid;
             grid-template-areas: "banner" "content" "footer";
             grid-template-rows: auto auto 10em;
             grid-template-columns: 1fr;
         }
     }
-}
-
-/* Grid not supported! To-do: use flex instead */
-@supports not (display: grid) {
-}
-
-#navbar {
-    margin-top: 1em;
-    grid-area: navbar;
-    display: grid;
-    grid-template: "logo links ." auto / 15% auto 15%;
-}
-
-#left-logo-container {
-    grid-area: logo;
-    justify-self: end;
-}
-
-#left-logo-container > a > img {
-    height: auto;
-    width: 7em;
-}
-
-#navbar > #links {
-    grid-area: links;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.highlight {
-    font-size: 1.3em;
-    font-weight: 400;
-    color: #eaeaea;
-    margin: .1em .8em;
-    text-align: center;
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -ms-transform: all 200ms ease-in-out; /* IE 9 */
-    -webkit-transform: all 200ms ease-in-out; /* Chrome, Safari, Opera */
-    transition: all 150ms ease-in-out;
-}
-
-.highlight:hover,
-.highlight:active {
-    color: #d5be73;
-}
-
-.move:hover,
-.move:active {
-    transform: translateY(.2em);
-}
-
-.highlight-box {
-    border: .15em solid #d5be73;
-    padding: .5em;
-    font-size: 1.3em;
-    font-weight: 400;
-    margin: 0em .7em;
-    color: #eaeaea;
-    text-align: center;
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    transition: all 150ms linear;
-}
-
-.highlight-box:hover {
-    border: .15em solid #d5be73;
-    color: black;
-    background: #d5be73;
-}
-
-#banner {
-    grid-area: banner;
-    height: 40em;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../resources/guardian.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: grid;
-    grid-template-areas: "navbar" "banner-text";
-    grid-template-rows: min-content auto;
-    grid-template-columns: 1fr;
-}
-
-#eric {
-    font-family: 'Noto Serif', serif;
-    font-size: 5em;
-    font-weight: 300;
-    letter-spacing: .05em;
-    margin-bottom: .5em;
-}
-
-#banner-text {
-    padding: none;
-    grid-area: banner-text;
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
-
-#content {
-    grid-area: content;
-    display: grid;
-    grid-template-areas: "about-container";
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    letter-spacing: .03em;
-}
-
-#about-container {
-    grid-area: about-container;
-    background: #eee;
-
-    display: grid;
-    grid-template: ". about ." auto / 1fr 4fr 1fr;
-}
-
-#about {
-    padding: 2em 0;
-    grid-area: about;
-    color: black;
-    display: grid;
-    grid-template: "about-left about-right" auto / 2fr 3fr;
-}
-
-#about-left {
-    grid-area: about-left;
-}
-
-#about-left > a > img {
-    height: 20em;
-}
-
-#about-right {
-    grid-area: about-right;
-    font-size: 1.25em;
-    padding-top: .5em;
-    padding-left: 1em;
-}
-
-#about-right > h1 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 400;
-    font-size: 2em;
-    text-align: center;
-}
-
-#footer {
-    color: #ccc;
-    grid-area: footer;
-    text-align: center;
-}
-#footer > hr {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    width: 70%;
-    border: none;
-    border-top: 1px solid #d5be73;
-}
-
-.text-shadow {
-    text-shadow: 1px 1px rgba(0,0,0,.4);
-}
-
-.boxed {
-    border: .15em solid white;
-    padding: .5em;
-}
-
-.green {
-    color: #06b179;
-}
-.purple {
-    color: #7315d6;
-}
-
-.link {
-    color: #7315d6;
-    -ms-transform: color 150ms ease-in-out; /* IE 9 */
-    -webkit-transform: color 150ms ease-in-out; /* Chrome, Safari, Opera */
-    transition: color 150ms ease-in-out;
-}
-
-    .link:hover, .link:after {
-        color: #c5a2eb;
+    /* 1024px (ipad landscape, computer) */
+    @media screen and (min-width: 53em) {
+    }
+    /* 1600px (computer) */
+    @media screen and (min-width: 83em) {
     }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Noto Serif', serif;
+    #navbar {
+        grid-area: navbar;
+        display: grid;
+        grid-template: "logo links ." auto / 15% auto 15%;
+    }
+
+    #left-logo-container {
+        color: white;
+        grid-area: logo;
+        justify-self: end;
+    }
+
+    #navbar > #links {
+        grid-area: links;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #banner {
+        grid-area: banner;
+        height: 40em;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../resources/guardian.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: grid;
+        grid-template-areas: "navbar" "banner-text";
+        grid-template-rows: min-content auto;
+        grid-template-columns: 1fr;
+    }
+
+    #content {
+        grid-area: content;
+        display: grid;
+        grid-template-areas: "about-container";
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        letter-spacing: .03em;
+    }
+    /* 320px (iphone 5 portrait) */
+    @media screen and (min-width: 16em) {
+        #about-container {
+            grid-area: about-container;
+            background: #eee;
+            display: grid;
+            grid-template: "about" auto / 1fr;
+        }
+
+        #about {
+            padding: 1em;
+            grid-area: about;
+            color: black;
+            display: grid;
+            grid-template: "about-left about-right" auto / 2fr 3fr;
+        }
+
+        #about-left {
+            grid-area: about-left;
+        }
+
+        #about-right {
+            grid-area: about-right;
+            font-size: 1.25em;
+            padding-top: .5em;
+            padding-left: 1em;
+        }
+    }
+    /* 1600px (monitor) */
+    @media screen and (min-width: 83em) {
+        #about-container {
+            grid-area: about-container;
+            background: #eee;
+            display: grid;
+            grid-template: ". about ." auto / 1fr 6fr 1fr;
+        }
+
+        #about {
+            padding: 2em 0;
+            grid-area: about;
+            color: black;
+            display: grid;
+            grid-template: "about-left about-right" auto / 2fr 3fr;
+        }
+
+        #about-left {
+            grid-area: about-left;
+        }
+
+        #about-right {
+            grid-area: about-right;
+            font-size: 1.25em;
+            padding-top: .5em;
+            padding-left: 1em;
+        }
+    }
+
+    #footer {
+        color: #ccc;
+        grid-area: footer;
+        text-align: center;
+    }
 }
 
-div, nav {
-}
+/*
+    Resolution independent code below
+*/
+    #left-logo-container > a > img {
+        height: auto;
+        width: 7em;
+    }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+    .highlight {
+        font-size: 1.3em;
+        font-weight: 400;
+        color: #eaeaea;
+        margin: .1em .8em;
+        text-align: center;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -ms-transform: all 200ms ease-in-out; /* IE 9 */
+        -webkit-transform: all 200ms ease-in-out; /* Chrome, Safari, Opera */
+        transition: all 150ms ease-in-out;
+    }
+
+        .highlight:hover,
+        .highlight:active {
+            color: #d5be73;
+        }
+
+    .move:hover,
+    .move:active {
+        transform: translateY(.2em);
+    }
+
+    .highlight-box {
+        border: .15em solid #d5be73;
+        padding: .5em;
+        font-size: 1.3em;
+        font-weight: 400;
+        margin: 0em .7em;
+        color: #eaeaea;
+        text-align: center;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        transition: all 150ms linear;
+    }
+
+        .highlight-box:hover {
+            border: .15em solid #d5be73;
+            color: black;
+            background: #d5be73;
+        }
+
+    #eric {
+        font-family: 'Noto Serif', serif;
+        font-size: 5em;
+        font-weight: 300;
+        letter-spacing: .05em;
+        margin-bottom: .5em;
+    }
+
+    #banner-text {
+        padding: 0;
+        grid-area: banner-text;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    #about-left > a > img {
+        width: 20em;
+    }
+
+    #about-right > h1 {
+        font-family: 'Noto Serif', serif;
+        font-weight: 400;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #footer > hr {
+        margin-top: 2em;
+        margin-bottom: 2em;
+        width: 70%;
+        border: none;
+        border-top: 1px solid #d5be73;
+    }
+
+    .text-shadow {
+        text-shadow: 1px 1px rgba(0,0,0,.4);
+    }
+
+    .boxed {
+        border: .15em solid white;
+        padding: .5em;
+    }
+
+    .green {
+        color: #06b179;
+    }
+
+    .purple {
+        color: #7315d6;
+    }
+
+    .link {
+        color: #7315d6;
+        -ms-transform: color 150ms ease-in-out; /* IE 9 */
+        -webkit-transform: color 150ms ease-in-out; /* Chrome, Safari, Opera */
+        transition: color 150ms ease-in-out;
+    }
+
+        .link:hover, .link:after {
+            color: #c5a2eb;
+        }
+
+    h1, h2, h3, h4, h5 {
+        font-family: 'Noto Serif', serif;
+    }
+
+    div, nav {
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
