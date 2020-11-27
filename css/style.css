@@ -19,7 +19,7 @@ body {
 
 /* Use flex as default, grid if supported (code below)*/
 #navbar {
-    margin: 1em;
+    margin: 2em 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
